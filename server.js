@@ -36,6 +36,24 @@ app.post('/convert', async (req, res) => {
     console.log('done con')
 
     res.json({ rurl: `http://localhost:5000/static/${finalname}.pdf` })
+    
+    const deletefile = ()=>{
+        fs.unlink(`uploads/${finalname}.pdf`,(err,data)=>{
+            if(err)console.log(err)
+            else{
+                console.log(data)
+                console.log("deleted")
+            }
+        })
+    }
+    printStatement = () => {
+        console.log('Printed after 3 seconds');
+    }
+    setTimeout(
+        deletefile
+        , 10000);
+    
+    
 })
 
 // })
