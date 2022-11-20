@@ -4,7 +4,8 @@ const path = require('path')
 
 const handwritten = require('handwritten.js')
 const fs = require('fs')
-
+const hostname = '0.0.0.0';
+const port = 3000;
 const app = express();
 app.use(cors());
 app.use(express.json())
@@ -59,6 +60,6 @@ app.post('/convert', async (req, res) => {
 // })
 
 
-app.listen(5000, () => [
+app.listen(port , hostname ,() => [
     console.log("Done")
 ])
