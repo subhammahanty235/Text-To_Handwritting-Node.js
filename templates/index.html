@@ -23,7 +23,7 @@
       }
     }
     
-    .ttr{
+    #ttr{
         display: none;
         border-radius: 5px;
         margin-top: 30px;
@@ -57,7 +57,7 @@
             <div id="lineh1" class="my-3"></div>
             <button type="button" class="btn btn-success" id="btn">Convert</button>
         </form>
-        <div class="ttr">
+        <div class="ttr" id="ttr">
 
             <h5 class="text-center mt-4">
                 Things to Remember
@@ -81,9 +81,9 @@
         let text = textarea.value;
         console.log(text)
         document.getElementById('lineh1').style.display = "block"
-        document.getElementsByClassName('ttr').style.display = "block"
+        document.getElementById('ttr').style.display = "block"
         document.getElementById('btn').innerHTML = "Loading..."
-        const url = await fetch('http://localhost:5000/convert', {
+        const url = await fetch('http://localhost:3000/convert', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -93,6 +93,7 @@
 
         })
         const dt = await url.json();
+        console.log(dt)
         document.getElementById('lineh1').style.display = "none"
         window.open(dt.rurl)
         document.getElementById('btn').innerHTML = "Convert"

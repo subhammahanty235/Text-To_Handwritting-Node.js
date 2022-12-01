@@ -4,7 +4,7 @@ const path = require('path')
 
 const handwritten = require('handwritten.js')
 const fs = require('fs')
-const hostname = '0.0.0.0';
+// const hostname = '0.0.0.0';
 const port = 3000;
 const app = express();
 app.use(cors());
@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 app.post('/convert', async (req, res) => {
     // const rawtext = "Hello, world!"
     const { data } = req.body;
+    
     console.log(data)
     let fnname = new Date().getTime();
 
@@ -36,7 +37,7 @@ app.post('/convert', async (req, res) => {
     })
     console.log('done con')
 
-    res.json({ rurl: `http://localhost:5000/static/${finalname}.pdf` })
+    res.json({ rurl: `http://localhost:3000/static/${finalname}.pdf` })
     
     const deletefile = ()=>{
         fs.unlink(`uploads/${finalname}.pdf`,(err,data)=>{
@@ -60,6 +61,6 @@ app.post('/convert', async (req, res) => {
 // })
 
 
-app.listen(port , hostname ,() => [
-    console.log("Done")
+app.listen(port ,() => [
+    console.log(`Done http://localhost/${port}`)
 ])
