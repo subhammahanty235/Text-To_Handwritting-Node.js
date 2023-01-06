@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <h1 class="text-center mt-3">T<sub class="text-success">2</sub>H</h1>
+    <h1 class="text-center mt-3">Typing<sub class="text-success">2</sub>Handwritting</h1>
     <hr>
     <div class="container">
 
@@ -92,6 +92,7 @@
                 JSON.stringify({ data: text })
 
         })
+        document.getElementById('btn').innerHTML = "Prepering PDF...."
         const dt = await url.json();
         console.log(dt)
         document.getElementById('lineh1').style.display = "none"
